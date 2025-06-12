@@ -1,5 +1,5 @@
 """
-Configuration du système de candidature automatique
+Configuration du système de candidature automatique - VERSION GRATUITE
 """
 
 import os
@@ -20,13 +20,18 @@ for directory in [DATA_DIR, LOGS_DIR, CV_DIR]:
     directory.mkdir(exist_ok=True)
 
 # =============================================================================
-# CONFIGURATION API
+# CONFIGURATION API (OPTIONNELLE)
 # =============================================================================
 
-# OpenAI (obligatoire pour l'adaptation du CV)
+# OpenAI (optionnel - si pas de clé, utilise l'adaptation basique)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+USE_AI_ADAPTATION = bool(OPENAI_API_KEY)
+
 if not OPENAI_API_KEY:
-    print("⚠️  ATTENTION: Clé OpenAI manquante. Définissez OPENAI_API_KEY dans vos variables d'environnement")
+    print("ℹ️  Mode GRATUIT : Pas de clé OpenAI détectée")
+    print("   → Utilisation de l'adaptation basique du CV (gratuite)")
+else:
+    print("🤖 Mode IA : Clé OpenAI détectée, adaptation intelligente activée")
 
 # =============================================================================
 # CONFIGURATION RECHERCHE D'EMPLOI
@@ -38,8 +43,16 @@ SEARCH_PROFILES = {
         "keywords": "data scientist python machine learning",
         "location": "Île-de-France",
         "exclude_keywords": ["stage", "intern", "bénévole", "freelance"],
-        "min_salary": 40000,  # Salaire minimum attendu
-        "max_pages_per_site": 5
+        "min_salary": 40000,
+        "max_pages_per_site": 5,
+        # Mots-clés pour adaptation basique (sans IA)
+        "target_keywords": [
+            "python", "machine learning", "data science", "sql", "pandas",
+            "numpy", "scikit-learn", "tensorflow", "pytorch", "jupyter",
+            "matplotlib", "seaborn", "plotly", "power bi", "tableau",
+            "big data", "analytics", "statistics", "deep learning",
+            "nlp", "computer vision", "ai", "artificial intelligence"
+        ]
     },
     
     "scrum_master": {
@@ -47,7 +60,13 @@ SEARCH_PROFILES = {
         "location": "Île-de-France", 
         "exclude_keywords": ["stage", "intern", "bénévole"],
         "min_salary": 45000,
-        "max_pages_per_site": 3
+        "max_pages_per_site": 3,
+        "target_keywords": [
+            "scrum", "agile", "kanban", "jira", "confluence", "sprint",
+            "backlog", "product owner", "stakeholder", "ceremonies",
+            "retrospective", "planning", "daily", "review", "safe",
+            "scaled agile", "project management", "team management"
+        ]
     },
     
     "data_analyst": {
@@ -55,12 +74,45 @@ SEARCH_PROFILES = {
         "location": "Île-de-France",
         "exclude_keywords": ["stage", "intern", "bénévole"],
         "min_salary": 35000,
-        "max_pages_per_site": 4
+        "max_pages_per_site": 4,
+        "target_keywords": [
+            "power bi", "tableau", "excel", "sql", "business intelligence",
+            "dashboard", "reporting", "kpi", "analytics", "data visualization",
+            "etl", "data warehouse", "qlik", "looker", "google analytics"
+        ]
     }
 }
 
 # Profil par défaut
 DEFAULT_PROFILE = "data_scientist"
+
+# =============================================================================
+# CONFIGURATION ADAPTATION CV (GRATUITE)
+# =============================================================================
+
+# Adaptation basique sans IA (gratuite)
+CV_ADAPTATION_CONFIG = {
+    "use_ai": USE_AI_ADAPTATION,
+    
+    # Règles d'adaptation basique (sans IA)
+    "basic_adaptation": {
+        "emphasize_matching_keywords": True,  # Met en avant les mots-clés qui matchent
+        "reorder_skills": True,  # Réorganise l'ordre des compétences
+        "adapt_title": True,  # Adapte le titre du poste recherché
+        "max_keywords_to_emphasize": 5,
+        
+        # Synonymes pour enrichir (sans IA)
+        "synonyms": {
+            "python": ["Python", "programmation Python", "développement Python"],
+            "sql": ["SQL", "bases de données", "requêtes SQL"],
+            "machine learning": ["Machine Learning", "ML", "apprentissage automatique"],
+            "data science": ["Data Science", "science des données", "analyse de données"],
+            "agile": ["Agile", "méthodologie Agile", "gestion Agile"],
+            "scrum": ["Scrum", "framework Scrum", "méthode Scrum"],
+            "power bi": ["Power BI", "Microsoft Power BI", "tableaux de bord"]
+        }
+    }
+}
 
 # =============================================================================
 # CONFIGURATION SITES DE RECHERCHE
@@ -70,8 +122,8 @@ SITES_CONFIG = {
     "indeed": {
         "enabled": True,
         "base_url": "https://fr.indeed.com/jobs",
-        "priority": 1,  # Plus prioritaire
-        "delay_between_requests": (2, 5),  # secondes (min, max)
+        "priority": 1,
+        "delay_between_requests": (2, 5),
     },
     
     "linkedin": {
@@ -98,23 +150,23 @@ APPLICATION_CONFIG = {
     "delay_between_applications": {
         "min": 30,  # secondes
         "max": 120,
-        "variation": 0.2  # Variation aléatoire ±20%
+        "variation": 0.2
     },
     
     # Limites journalières
     "daily_limits": {
         "max_applications_per_day": 50,
         "max_applications_per_hour": 10,
-        "pause_after_applications": 5,  # Pause après X candidatures
-        "pause_duration": 300  # Durée de pause en secondes
+        "pause_after_applications": 5,
+        "pause_duration": 300
     },
     
     # Filtres qualité
     "quality_filters": {
-        "min_description_length": 200,  # Caractères minimum dans la description
-        "exclude_companies": [],  # Entreprises à éviter
-        "require_salary": False,  # Exiger que le salaire soit mentionné
-        "max_application_age_days": 7  # Ne pas postuler aux offres de plus de 7 jours
+        "min_description_length": 200,
+        "exclude_companies": [],
+        "require_salary": False,
+        "max_application_age_days": 7
     }
 }
 
@@ -123,23 +175,22 @@ APPLICATION_CONFIG = {
 # =============================================================================
 
 CV_CONFIG = {
-    # Template de base (sera adapté pour chaque offre)
-    "base_template_path": CV_DIR / "juliana_base_cv.txt",
+    "base_template_path": CV_DIR / "cv_base.txt",
     
     # Sections adaptables
     "adaptable_sections": {
-        "title": True,  # Titre du poste recherché
-        "skills": True,  # Ordre et emphase des compétences
-        "experience_descriptions": True,  # Reformulation des expériences
-        "keywords_integration": True  # Intégration naturelle des mots-clés
+        "title": True,
+        "skills": True,
+        "experience_descriptions": True,
+        "keywords_integration": True
     },
     
     # Règles d'adaptation
     "adaptation_rules": {
-        "keep_structure": True,  # Garder la structure originale
-        "max_keywords_per_section": 5,  # Max mots-clés à intégrer par section
-        "synonym_replacement": True,  # Remplacer par des synonymes
-        "preserve_achievements": True  # Garder les chiffres et résultats
+        "keep_structure": True,
+        "max_keywords_per_section": 5,
+        "synonym_replacement": True,
+        "preserve_achievements": True
     }
 }
 
@@ -149,9 +200,9 @@ CV_CONFIG = {
 
 DATABASE_CONFIG = {
     "path": DATA_DIR / "jobs.db",
-    "backup_frequency": "daily",  # daily, weekly
-    "cleanup_old_jobs_days": 90,  # Supprimer les jobs de plus de 90 jours
-    "export_formats": ["csv", "excel"]  # Formats d'export disponibles
+    "backup_frequency": "daily",
+    "cleanup_old_jobs_days": 90,
+    "export_formats": ["csv", "excel"]
 }
 
 # =============================================================================
@@ -159,7 +210,7 @@ DATABASE_CONFIG = {
 # =============================================================================
 
 LOGGING_CONFIG = {
-    "level": "INFO",  # DEBUG, INFO, WARNING, ERROR
+    "level": "INFO",
     "file_path": LOGS_DIR / "job_automation.log",
     "max_file_size_mb": 10,
     "backup_count": 5,
@@ -171,11 +222,11 @@ LOGGING_CONFIG = {
 # =============================================================================
 
 SELENIUM_CONFIG = {
-    "headless": True,  # Mode sans interface graphique
+    "headless": True,
     "window_size": (1920, 1080),
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    "implicit_wait": 10,  # Attente implicite en secondes
-    "page_load_timeout": 30,  # Timeout de chargement de page
+    "implicit_wait": 10,
+    "page_load_timeout": 30,
     "download_dir": DATA_DIR / "downloads"
 }
 
@@ -194,10 +245,6 @@ def validate_config() -> bool:
     """Valide la configuration"""
     errors = []
     
-    # Vérification des clés API
-    if not OPENAI_API_KEY:
-        errors.append("Clé OpenAI manquante")
-    
     # Vérification des fichiers requis
     if not CV_CONFIG["base_template_path"].exists():
         errors.append(f"Template CV manquant: {CV_CONFIG['base_template_path']}")
@@ -213,4 +260,43 @@ def validate_config() -> bool:
         return False
     
     print("✅ Configuration valide")
+    if not USE_AI_ADAPTATION:
+        print("ℹ️  Mode adaptation basique (gratuit) activé")
+    else:
+        print("🤖 Mode adaptation IA activé")
+    
     return True
+
+def extract_keywords_basic(job_title: str, job_description: str, profile_keywords: list) -> list:
+    """Extraction basique de mots-clés (sans IA)"""
+    text = f"{job_title} {job_description}".lower()
+    found_keywords = []
+    
+    for keyword in profile_keywords:
+        if keyword.lower() in text:
+            found_keywords.append(keyword)
+    
+    return found_keywords[:10]  # Max 10 mots-clés
+
+def adapt_cv_basic(base_cv: str, keywords: list, profile_config: dict) -> str:
+    """Adaptation basique du CV (sans IA)"""
+    adapted_cv = base_cv
+    
+    # Remplace le titre si nécessaire
+    if "data scientist" in keywords:
+        adapted_cv = adapted_cv.replace(
+            "CDI DATA & IA | SCRUM MASTER & GESTION DE PROJET AGILE",
+            "DATA SCIENTIST | MACHINE LEARNING & INTELLIGENCE ARTIFICIELLE"
+        )
+    elif "scrum master" in [k.lower() for k in keywords]:
+        adapted_cv = adapted_cv.replace(
+            "CDI DATA & IA | SCRUM MASTER & GESTION DE PROJET AGILE", 
+            "SCRUM MASTER | GESTION DE PROJET AGILE & TRANSFORMATION DIGITALE"
+        )
+    
+    # Ajoute les mots-clés trouvés dans une section dédiée
+    if keywords:
+        keywords_section = f"\n\nMOTS-CLÉS TECHNIQUES RECHERCHÉS\n{', '.join(keywords[:8])}"
+        adapted_cv += keywords_section
+    
+    return adapted_cv
