@@ -1,0 +1,180 @@
+# Fichiers de configuration sensibles
+.env
+*.env
+.env.local
+.env.production
+
+# Clés API et secrets
+api_keys.txt
+secrets.json
+config_private.py
+
+# Base de données
+*.db
+*.sqlite
+*.sqlite3
+data/jobs.db
+data/*.db
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Téléchargements et données temporaires
+downloads/
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Selenium
+*.png
+*.jpg
+*.jpeg
+screenshots/
+webdriver/
+chromedriver*
+geckodriver*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# CSV exports (peuvent contenir des données sensibles)
+exports/*.csv
+exports/*.xlsx
+backups/
+
+# Système d'exploitation
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Fichiers de test
+test_output/
+test_results/
+coverage/
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Données personnelles
+cv_personnel/
+candidatures_perso/
+mes_donnees/
+
+# Fichiers volumineux
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# Fichiers de configuration IDE
+*.swp
+*.swo
+*~
+
+# Node.js (si on ajoute du JS plus tard)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
