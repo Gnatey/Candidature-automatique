@@ -1,0 +1,82 @@
+JULIANA NIAPOH
+CDI DATA & IA | SCRUM MASTER & GESTION DE PROJET AGILE
+
+CONTACT
+📍 93300, Aubervilliers | 🕒 Disponibilité : Octobre 2025
+📧 Jniapoh@gmail.com | 📞 0622855341
+🔗 LinkedIn | Portfolio/website
+
+Passionnée par l'IA et le Big Data, j'ai acquis une solide expertise en gestion de projets IT et en analyse de données lors de mes alternances chez Orano et SNCF. Spécialisée en coordination Agile et optimisation des processus, je conçois des solutions innovantes adaptées aux enjeux métiers. Mon ambition est de contribuer activement à la transformation numérique en alliant intelligence artificielle et stratégie data-driven.
+
+EXPÉRIENCES PROFESSIONNELLES
+
+Alternance Assistante cheffe de projet numérique (2024/2025)
+SNCF, Saint-Denis - FERROVIAIRE
+• Coordination de projets IT : Pilotage de projets de transformation numérique au sein de la DSI, en mode Agile (Scrum), en collaboration avec une MOA et des équipes de développement technique
+• Gestion d'un portail collaboratif pour la médecine du travail, réduisant les délais de communication de 30% et améliorant la satisfaction utilisateur de 15%
+• Rédaction d'un cahier de recette et d'un cahier des charges pour des projets stratégiques
+• Support utilisateur : Assure un support de niveau 3 aux utilisateurs (internes et clients). Résolution d'incidents complexes
+• Animation de formations techniques et fonctionnelles pour les nouveaux outils déployés
+• Gestion des changements : Accompagnement des utilisateurs dans l'adoption de nouvelles solutions
+
+Alternance Chargée de projet Digital (2022/2023)
+ORANO, Châtillon - ÉNERGIE NUCLÉAIRE
+• Analyse et optimisation des données : Analyse des flux de données existants, évaluation de la qualité des données collectées
+• Développement de solutions et gestion de projets : Conception et intégration de solutions de données, coordination des équipes pour développer des outils de visualisation
+• Communication et support aux utilisateurs : Formation des équipes à l'utilisation des nouveaux outils, création de guides et documentation utilisateur
+
+FORMATION
+Master Data Management (2023/2025)
+Paris School of Business, Paris
+
+Bachelor E-commerce & Marketing numérique (2022/2023)
+Paris School of Business, Paris
+
+DUT Statistiques & Informatiques Décisionnelles (2020/2022)
+Université Sorbonne Paris Nord, Villetaneuse
+
+COMPÉTENCES TECHNIQUES
+
+Langages de Programmation et Analyse de Données
+• PYTHON / GOOGLE COLABS : Automatisation, tests unitaires, analyse de données, algorithmes de machine learning (Scikit-learn)
+• R / RSTUDIO : Analyses statistiques avancées, visualisations de données (ggplot2), manipulation de données (dplyr, tidyr)
+• SQL : Requêtes complexes, optimisation de bases de données, migration et gestion d'accès utilisateur
+
+Data visualisation et Documentation
+• JUPYTER NOTEBOOK / ANACONDA : Création de rapports interactifs, gestion d'environnements virtuels
+• POWER BI : Dashboards interactifs, Reporting Stratégique
+
+Développement Web
+• HTML / CSS (BOOTSTRAP, TAILWIND CSS) : Conception de sites web responsive
+• JAVASCRIPT : Pages web dynamiques et interactivité
+• WORDPRESS / WOOCOMMERCE : Implémentation de solutions e-commerce, optimisation SEO
+
+Gestion de Projet
+• METHODE AGILE (SCRUM, KANBAN) : Suivi des KPIs, gestion de backlog (Jira, Trello), coordination des équipes
+• OUTILS DE PLANIFICATION : Diagrammes de Gantt, suivi des étapes projets (RIDA)
+
+Machine Learning et Big Data
+• Implémentation d'algorithmes prédictifs, analyses descriptives avancées
+• Intégration et nettoyage de grands ensembles de données pour des projets IA
+
+PROJETS ACADÉMIQUES
+• Base de données SQL WorkBench : Conception, implémentation et optimisation d'une base de données relationnelle
+• IA Student Assistance : Développement d'une solution d'assistance étudiante basée sur l'IA (NLP)
+• Scrum Master : Gestion d'une équipe agile (organisation des sprints, suivi des tâches)
+• Tableau de bord RH (Python) : Outil de visualisation des données RH avec Python (Pandas, Matplotlib, Streamlit)
+
+SOFT SKILLS
+• Esprit d'analyse et résolution de problèmes complexes
+• Collaboration en équipe et coordination
+• Adaptabilité et gestion du changement
+• Communication et formation d'équipes
+
+CERTIFICATIONS (OpenClassrooms)
+📊 Data & IA : Objectif IA, ChatGPT & productivité, SQL, Python pour l'analyse de données
+📂 Bureautique : Excel
+💻 Développement web : HTML5, CSS3, Web fundamentals
+
+CENTRES D'INTÉRÊT
+• Jeux vidéos
+• Voyages
+• Programmation
